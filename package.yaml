@@ -21,9 +21,24 @@ description:         Please see the README on GitHub at <https://github.com/jona
 
 dependencies:
 - base >= 4.7 && < 5
+- bytestring
+- megaparsec
+- text
+- relude
+- QuickCheck
+- semigroups
 
 library:
   source-dirs: src
+  ghc-options:
+  - -threaded
+  - -rtsopts
+  - -with-rtsopts=-N
+  - -Wredundant-constraints
+
+default-extensions:
+  - NoImplicitPrelude
+  - OverloadedStrings
 
 tests:
   mf-hask-test:
@@ -33,5 +48,9 @@ tests:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wredundant-constraints
     dependencies:
     - mf-hask
+    - hspec
+    - QuickCheck
+    - hspec-discover
