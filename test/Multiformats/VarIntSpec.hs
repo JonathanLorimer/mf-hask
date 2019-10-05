@@ -233,16 +233,3 @@ checkConts (f, s) =
                         <> [Zero : (NE.drop 1 $ L.last f)]
                        else Zero : (NE.drop 1 $ L.head f)
                   else Just $ NE.toList $ (join $ fromList f) <> (s')
-
-
--- $> :l Multiformats.VarintSpec
-
--- $> let bins = padByte [One,One,One,One,One,One,One,Zero,Zero]
-
--- $> let p = B.pack $ binToW8 <$> bins
-
--- $> testBS bins
-
--- $> compBs bins
-
--- $> encode <$> (decode p)
